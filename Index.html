@@ -1,1 +1,438 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Work From Home Jobs - Job Application Form</title>
+  <meta name="description" content="Simple and clean online job application form for work from home jobs.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page-wrapper">
+    <div class="form-container">
+      
+      <!-- COMPACT PROFESSIONAL HEADER -->
+      <header class="form-header">
+        <h1 class="main-title">WORK FROM HOME JOBS</h1>
+        <h2 class="sub-title">JOB APPLICATION FORM</h2>
+      </header>
+
+      <!-- APPLICATION FORM -->
+      <form id="jobApplicationForm" novalidate autocomplete="on">
+        
+        <!-- 1. Full Name -->
+        <div class="form-group" id="group-name">
+          <label for="fullName" class="form-label">Full Name <span class="req">*</span></label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName" 
+            class="form-control" 
+            placeholder="Enter your full name" 
+            required 
+            autocomplete="name"
+            autocapitalize="words"
+          >
+          <span class="error-msg" id="error-fullName">Please enter your full name</span>
+        </div>
+
+        <!-- 2. Mobile Number (Fixed +91 Prefix, 10 Digits) -->
+        <div class="form-group" id="group-mobile">
+          <label for="mobileNumber" class="form-label">Mobile Number <span class="req">*</span></label>
+          <div class="phone-wrapper">
+            <span class="country-prefix">+91</span>
+            <input 
+              type="tel" 
+              id="mobileNumber" 
+              name="mobileNumber" 
+              class="form-control phone-input" 
+              placeholder="10-digit mobile number" 
+              inputmode="numeric" 
+              pattern="[0-9]{10}"
+              maxlength="10" 
+              required 
+              autocomplete="tel-national"
+            >
+          </div>
+          <span class="error-msg" id="error-mobileNumber">Please enter a valid 10-digit mobile number</span>
+        </div>
+
+        <!-- 3. Job Type (Typing Job must be FIRST) -->
+        <div class="form-group" id="group-job">
+          <label for="jobType" class="form-label">Job Type <span class="req">*</span></label>
+          <div class="select-wrapper">
+            <select id="jobType" name="jobType" class="form-control select-control" required>
+              <option value="" disabled selected>Select Job Type</option>
+              <option value="Typing Job">Typing Job</option>
+              <option value="Accountant">Accountant</option>
+              <option value="Excel Work">Excel Work</option>
+              <option value="Data Entry">Data Entry</option>
+            </select>
+          </div>
+          <span class="error-msg" id="error-jobType">Please select a job type</span>
+        </div>
+
+        <!-- 4. Work Type (Simple Radio Buttons) -->
+        <div class="form-group" id="group-workType">
+          <span class="form-label">Work Type <span class="req">*</span></span>
+          <div class="work-type-radios" role="radiogroup" aria-label="Work Type">
+            <label class="radio-option">
+              <input type="radio" name="workType" value="Part Time" checked>
+              <span class="radio-custom"></span>
+              <span class="radio-text">Part Time</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="workType" value="Full Time">
+              <span class="radio-custom"></span>
+              <span class="radio-text">Full Time</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 5. State (All Indian States & UTs) -->
+        <div class="form-group" id="group-state">
+          <label for="stateSelect" class="form-label">State <span class="req">*</span></label>
+          <div class="select-wrapper">
+            <select id="stateSelect" name="state" class="form-control select-control" required>
+              <option value="" disabled selected>Select State</option>
+              <!-- 28 States -->
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+              <!-- 8 Union Territories -->
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Ladakh">Ladakh</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+            </select>
+          </div>
+          <span class="error-msg" id="error-stateSelect">Please select your state</span>
+        </div>
+
+        <!-- 6. City (Dynamic Based on State) -->
+        <div class="form-group" id="group-city">
+          <label for="citySelect" class="form-label">City <span class="req">*</span></label>
+          <div class="select-wrapper">
+            <select id="citySelect" name="city" class="form-control select-control" required disabled>
+              <option value="" disabled selected>Select City</option>
+            </select>
+          </div>
+          
+          <!-- Custom City Input if "Other" is chosen -->
+          <div id="otherCityBox" class="other-city-field" style="display: none;">
+            <input 
+              type="text" 
+              id="otherCityInput" 
+              class="form-control" 
+              placeholder="Enter your city name" 
+              autocomplete="address-level2"
+            >
+          </div>
+          <span class="error-msg" id="error-citySelect">Please select or enter your city</span>
+        </div>
+
+        <!-- SUBMIT APPLICATION BUTTON -->
+        <button type="submit" id="submitBtn" class="submit-btn">
+          SUBMIT APPLICATION
+        </button>
+
+        <!-- Feedback & Direct Link Container if browser blocks auto-popup -->
+        <div id="statusBox" class="status-box" style="display: none;">
+          <p class="status-title">Opening Telegram...</p>
+          <p class="status-desc">If Telegram didn't open automatically, click below:</p>
+          <a id="telegramDirectLink" href="#" target="_blank" class="status-link">Open in Telegram (@suraj898989)</a>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // State to prominent cities mapping for all Indian States and UTs
+    const stateCities = {
+      "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Rajahmundry", "Tirupati", "Kakinada", "Anantapur", "Kadapa", "Eluru", "Vizianagaram"],
+      "Arunachal Pradesh": ["Itanagar", "Naharlagun", "Pasighat", "Tawang", "Ziro", "Roing"],
+      "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Tezpur", "Bongaigaon"],
+      "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia", "Darbhanga", "Bihar Sharif", "Arrah", "Begusarai", "Katihar", "Munger", "Chhapra"],
+      "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba", "Rajnandgaon", "Durg", "Jagdalpur", "Ambikapur"],
+      "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa", "Ponda", "Bicholim"],
+      "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Navsari", "Morbi", "Mehsana"],
+      "Haryana": ["Gurugram", "Faridabad", "Panipat", "Ambala", "Yamunanagar", "Rohtak", "Hisar", "Karnal", "Sonipat", "Panchkula", "Sirsa", "Bhiwani"],
+      "Himachal Pradesh": ["Shimla", "Dharamshala", "Mandi", "Solan", "Kullu", "Manali", "Baddi", "Hamirpur", "Bilaspur"],
+      "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro Steel City", "Deoghar", "Hazaribagh", "Giridih", "Ramgarh"],
+      "Karnataka": ["Bengaluru", "Mysuru", "Hubballi-Dharwad", "Mangaluru", "Belagavi", "Kalaburagi", "Davanagere", "Ballari", "Shivamogga", "Tumakuru", "Udupi"],
+      "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Kollam", "Thrissur", "Kannur", "Alappuzha", "Kottayam", "Palakkad", "Malappuram"],
+      "Madhya Pradesh": ["Indore", "Bhopal", "Jabalpur", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Rewa", "Katni", "Singrauli"],
+      "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Thane", "Nashik", "Kalyan-Dombivli", "Vasai-Virar", "Chhatrapati Sambhajinagar", "Navi Mumbai", "Solapur", "Kolhapur", "Amravati", "Nanded"],
+      "Manipur": ["Imphal", "Churachandpur", "Thoubal", "Bishnupur", "Ukhrul"],
+      "Meghalaya": ["Shillong", "Tura", "Jowai", "Nongpoh", "Cherrapunji"],
+      "Mizoram": ["Aizawl", "Lunglei", "Champhai", "Serchhip", "Kolasib"],
+      "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha"],
+      "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Puri", "Balasore", "Bhadrak", "Baripada"],
+      "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Mohali", "Hoshiarpur", "Pathankot", "Moga", "Batala"],
+      "Rajasthan": ["Jaipur", "Jodhpur", "Kota", "Bikaner", "Ajmer", "Udaipur", "Bhilwara", "Alwar", "Sikar", "Sri Ganganagar", "Bharatpur", "Pali"],
+      "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan", "Rangpo"],
+      "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tiruppur", "Erode", "Vellore", "Thoothukudi", "Dindigul", "Tirunelveli", "Thanjavur"],
+      "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Khammam", "Karimnagar", "Ramagundam", "Mahbubnagar", "Nalgonda", "Adilabad"],
+      "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Kailashahar", "Belonia"],
+      "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Prayagraj", "Meerut", "Noida", "Greater Noida", "Ghaziabad", "Bareilly", "Aligarh", "Moradabad", "Saharanpur", "Gorakhpur", "Jhansi", "Mathura", "Ayodhya"],
+      "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Rishikesh", "Kashipur", "Rudrapur", "Nainital"],
+      "West Bengal": ["Kolkata", "Howrah", "Asansol", "Siliguri", "Durgapur", "Bardhaman", "Malda", "Kharagpur", "Habra", "Haldia"],
+      "Andaman and Nicobar Islands": ["Port Blair", "Diglipur"],
+      "Chandigarh": ["Chandigarh"],
+      "Dadra and Nagar Haveli and Daman and Diu": ["Daman", "Diu", "Silvassa"],
+      "Delhi": ["New Delhi", "North Delhi", "South Delhi", "West Delhi", "East Delhi", "Central Delhi", "Noida (NCR)", "Gurugram (NCR)"],
+      "Jammu and Kashmir": ["Srinagar", "Jammu", "Anantnag", "Baramulla", "Kathua", "Udhampur", "Sopore"],
+      "Ladakh": ["Leh", "Kargil"],
+      "Lakshadweep": ["Kavaratti", "Agatti", "Andrott", "Amini"],
+      "Puducherry": ["Puducherry", "Karaikal", "Mahe", "Yanam"]
+    };
+
+    const form = document.getElementById('jobApplicationForm');
+    const fullNameInput = document.getElementById('fullName');
+    const mobileInput = document.getElementById('mobileNumber');
+    const jobTypeSelect = document.getElementById('jobType');
+    const stateSelect = document.getElementById('stateSelect');
+    const citySelect = document.getElementById('citySelect');
+    const otherCityBox = document.getElementById('otherCityBox');
+    const otherCityInput = document.getElementById('otherCityInput');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusBox = document.getElementById('statusBox');
+    const telegramDirectLink = document.getElementById('telegramDirectLink');
+
+    // Restrict mobile input: digits only, maximum 10 digits
+    mobileInput.addEventListener('input', function() {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+      if (this.value.length === 10) {
+        clearError('mobileNumber');
+      }
+    });
+
+    // Populate City dropdown when State changes
+    stateSelect.addEventListener('change', function() {
+      const selectedState = this.value;
+      const cities = stateCities[selectedState] || [];
+
+      citySelect.innerHTML = '<option value="" disabled selected>Select City</option>';
+
+      cities.forEach(city => {
+        const opt = document.createElement('option');
+        opt.value = city;
+        opt.textContent = city;
+        citySelect.appendChild(opt);
+      });
+
+      // Add "Other" option for custom entry
+      const otherOpt = document.createElement('option');
+      otherOpt.value = "Other";
+      otherOpt.textContent = "Other (Type City Name)";
+      citySelect.appendChild(otherOpt);
+
+      citySelect.disabled = false;
+      otherCityBox.style.display = 'none';
+      otherCityInput.value = '';
+      clearError('stateSelect');
+      clearError('citySelect');
+    });
+
+    // Toggle custom city input if "Other" is selected
+    citySelect.addEventListener('change', function() {
+      if (this.value === 'Other') {
+        otherCityBox.style.display = 'block';
+        otherCityInput.focus();
+      } else {
+        otherCityBox.style.display = 'none';
+        otherCityInput.value = '';
+      }
+      clearError('citySelect');
+    });
+
+    // Clear error helper
+    function clearError(fieldId) {
+      const errorEl = document.getElementById('error-' + fieldId);
+      const inputEl = document.getElementById(fieldId);
+      if (errorEl) errorEl.style.display = 'none';
+      if (inputEl) inputEl.classList.remove('has-error');
+    }
+
+    // Set error helper
+    function showError(fieldId, customMsg) {
+      const errorEl = document.getElementById('error-' + fieldId);
+      const inputEl = document.getElementById(fieldId);
+      if (errorEl) {
+        if (customMsg) errorEl.textContent = customMsg;
+        errorEl.style.display = 'block';
+      }
+      if (inputEl) inputEl.classList.add('has-error');
+    }
+
+    // Input listeners to clear errors on user typing/selection
+    fullNameInput.addEventListener('input', () => clearError('fullName'));
+    jobTypeSelect.addEventListener('change', () => clearError('jobType'));
+    otherCityInput.addEventListener('input', () => clearError('citySelect'));
+
+    // Form Submission Handler
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      let isValid = true;
+      let firstInvalidElement = null;
+
+      // 1. Validate Full Name
+      const name = fullNameInput.value.trim();
+      if (!name || name.length < 2) {
+        showError('fullName', 'Please enter your full name');
+        isValid = false;
+        if (!firstInvalidElement) firstInvalidElement = fullNameInput;
+      } else {
+        clearError('fullName');
+      }
+
+      // 2. Validate Mobile (Exact 10 digits)
+      const mobile = mobileInput.value.trim();
+      if (!mobile || !/^\d{10}$/.test(mobile)) {
+        showError('mobileNumber', 'Please enter exactly 10 digits mobile number');
+        isValid = false;
+        if (!firstInvalidElement) firstInvalidElement = mobileInput;
+      } else {
+        clearError('mobileNumber');
+      }
+
+      // 3. Validate Job Type
+      const jobType = jobTypeSelect.value;
+      if (!jobType) {
+        showError('jobType', 'Please select a job type');
+        isValid = false;
+        if (!firstInvalidElement) firstInvalidElement = jobTypeSelect;
+      } else {
+        clearError('jobType');
+      }
+
+      // 4. Work Type
+      const workTypeInput = document.querySelector('input[name="workType"]:checked');
+      const workType = workTypeInput ? workTypeInput.value : 'Part Time';
+
+      // 5. Validate State
+      const state = stateSelect.value;
+      if (!state) {
+        showError('stateSelect', 'Please select your state');
+        isValid = false;
+        if (!firstInvalidElement) firstInvalidElement = stateSelect;
+      } else {
+        clearError('stateSelect');
+      }
+
+      // 6. Validate City
+      let city = citySelect.value;
+      if (!city) {
+        showError('citySelect', 'Please select your city');
+        isValid = false;
+        if (!firstInvalidElement) firstInvalidElement = citySelect;
+      } else if (city === 'Other') {
+        const customCity = otherCityInput.value.trim();
+        if (!customCity) {
+          showError('citySelect', 'Please type your city name');
+          isValid = false;
+          if (!firstInvalidElement) firstInvalidElement = otherCityInput;
+        } else {
+          city = customCity;
+          clearError('citySelect');
+        }
+      } else {
+        clearError('citySelect');
+      }
+
+      // If invalid, focus the first error field
+      if (!isValid) {
+        if (firstInvalidElement) firstInvalidElement.focus();
+        return;
+      }
+
+      // Construct Telegram message in exact requested format:
+      // 📩 NEW JOB APPLICATION
+      // 
+      // 👤 Name: [name]
+      // 
+      // 📱 Mobile: +91 [mobile]
+      // 
+      // 💼 Job Type: [job type]
+      // 
+      // 🕐 Work Type: [Part Time / Full Time]
+      // 
+      // 📍 State: [state]
+      // 
+      // 🏙️ City: [city]
+
+      const message = 
+`📩 NEW JOB APPLICATION
+
+👤 Name: ${name}
+
+📱 Mobile: +91 ${mobile}
+
+💼 Job Type: ${jobType}
+
+🕐 Work Type: ${workType}
+
+📍 State: ${state}
+
+🏙️ City: ${city}`;
+
+      // Open Telegram deep-link with pre-filled message to @suraj898989
+      const telegramUrl = `https://t.me/suraj898989?text=${encodeURIComponent(message)}`;
+
+      // Show friendly status box with direct link fallback
+      statusBox.style.display = 'block';
+      telegramDirectLink.href = telegramUrl;
+
+      // Provide visual feedback on button
+      submitBtn.textContent = 'OPENING TELEGRAM...';
+      submitBtn.classList.add('loading');
+
+      // Open Telegram link immediately
+      try {
+        window.open(telegramUrl, '_blank');
+      } catch (err) {
+        window.location.href = telegramUrl;
+      }
+
+      // Re-enable button after 3 seconds
+      setTimeout(() => {
+        submitBtn.textContent = 'SUBMIT APPLICATION';
+        submitBtn.classList.remove('loading');
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
